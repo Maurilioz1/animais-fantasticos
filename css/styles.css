@@ -43,7 +43,7 @@ body {
 
 .menu ul li a {
     display: block;
-    padding: 10px;
+    padding: 15px 10px;
     margin-right: 10px;
     color: #222222;
     text-decoration: none;
@@ -102,6 +102,10 @@ body {
     height: 375px;
     overflow-y: scroll;
     grid-column: 2;
+}
+
+.list-beasts li {
+    cursor: pointer;
 }
 
 .list-beasts::-webkit-scrollbar {
@@ -216,5 +220,27 @@ body {
     }
     .copy {
         margin-bottom: 0;
+    }
+}
+
+.js .js-tabcontent section {
+    display: none;
+}
+
+.js-tabcontent section.active {
+    display: block;
+    animation-name: show;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        transform: translate3d(-30px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
     }
 }
