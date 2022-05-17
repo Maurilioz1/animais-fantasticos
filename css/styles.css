@@ -140,6 +140,7 @@ body {
     margin-top: 2rem;
     margin-bottom: 0.5rem;
     color: #ee5544;
+    cursor: pointer;
 }
 
 .faq-list dt::before {
@@ -242,5 +243,36 @@ body {
     to {
         opacity: 1;
         transform: translate3d(0, 0, 0);
+    }
+}
+
+.js .js-accordion dd {
+    display: none;
+}
+
+.js-accordion dt::after {
+    content: "⬎";
+    margin-left: 10px;
+}
+
+.js-accordion dt.active::after {
+    content: "⬏";
+}
+
+.js-accordion dd.active {
+    display: block;
+    animation-name: slideDown;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px;
     }
 }
