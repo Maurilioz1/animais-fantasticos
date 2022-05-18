@@ -21,13 +21,11 @@ function initTabNav() {
     }
 }
 
-initTabNav();
-
 function initAccordion() {
-    if (accordionList.length) {
-        const activeClass = 'active';
+    const accordionList = document.querySelectorAll('.js-accordion dt');
+    const activeClass = 'active';
 
-        const accordionList = document.querySelectorAll('.js-accordion dt');
+    if (accordionList.length) {
         accordionList[0].classList.add(activeClass);
         accordionList[0].nextElementSibling.classList.add(activeClass);
 
@@ -42,4 +40,35 @@ function initAccordion() {
     }
 }
 
+function initScrollSmooth() {
+    const intenalLinks = document.querySelectorAll('.js-menu a[href^="#"]');
+
+    if (intenalLinks.length) {
+        function scrollToSection(event) {
+            event.preventDefault();
+
+            const href = event.currentTarget.getAttribute('href');
+            const section = document.querySelector(href);
+
+            section.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+            // const top = section.offsetTop;
+            // window.scrollTo({
+            //     top: top,
+            //     behavior: 'smooth'
+            // });
+        }
+
+        intenalLinks.forEach((item) => {
+            item.addEventListener('click', scrollToSection);
+        });
+    }
+}
+
+
+initTabNav();
 initAccordion();
+initScrollSmooth();
