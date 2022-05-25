@@ -22,18 +22,19 @@
     <div class="grid-container">
         <nav class="menu js-menu">
             <ul>
-                <li>
-                    <a href="#beasts">Animais</a>
+                <li><a href="#beasts">Animais</a></li>
+                <li data-dropdown>
+                    <a href="sobre.html">Sobre</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="empresa.html">A empresa</a></li>
+                        <li><a href="equipe.html">Equipe</a></li>
+                        <li><a href="sócios.html">Sócios</a></li>
+                        <li><a href="investidores.html">Investidores</a></li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="#faq">FAQ</a>
-                </li>
-                <li>
-                    <a href="#contact">Contato</a>
-                </li>
-                <li>
-                    <a href="login.html" data-modal="open">Login →</a>
-                </li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contato</a></li>
+                <li><a href="login.html" data-modal="open">Login →</a></li>
             </ul>
         </nav>
 
@@ -131,7 +132,7 @@
                 <input type="email" for="email" id="email">
 
                 <label for="password">Senha</label>
-                <input type="password" for="password" id="password">
+                <input type="password" for="password" id="password" autocomplete="on">
 
                 <button type="submit">Entrar</button>
             </form>
