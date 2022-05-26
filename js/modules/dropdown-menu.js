@@ -6,15 +6,16 @@ export default function initDropdownMenu() {
     function handleClick(event) {
         event.preventDefault();
 
-        this.classList.add('active');
-        outsideClick(this, ['touchstart', 'click'], () => {
+        this.classList.toggle('active');
+
+        outsideClick(this, ['touch', 'click'], () => {
             this.classList.remove('active');
         });
     }
 
     dropdownMenus.forEach((item) => {
-        ['touchstart', 'click'].forEach((userEvent) => {
-            item.addEventListener(userEvent, handleClick);
+        ['touch', 'click'].forEach((userEvent) => {
+            item.addEventListener(userEvent, handleClick, { passive: true });
         });
     });
 }
