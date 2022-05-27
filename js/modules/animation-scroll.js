@@ -11,7 +11,7 @@ export default function initAnimationScroll() {
 
                 if (isSectionVisible) {
                     item.classList.add('active');
-                } else {
+                } else if (item.classList.contains('active')) {
                     item.classList.remove('active');
                 }
             });
