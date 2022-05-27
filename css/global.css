@@ -172,6 +172,8 @@ body {
 .data li {
     margin-bottom: 1rem;
     font-family: Helvetica, Arial, sans-serif;
+    display: flex;
+    align-items: center;
 }
 
 .data li::before {
@@ -290,4 +292,19 @@ body {
     opacity: 1;
     transition: 0.3s;
     transform: translate3d(0px, 0, 0);
+}
+
+[data-week]::after {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #ee5544;
+    border-radius: 50px;
+    margin-left: 4px;
+    border: 2px solid #000000;
+}
+
+[data-week].open::after {
+    background-color: #33ff44;
 }
