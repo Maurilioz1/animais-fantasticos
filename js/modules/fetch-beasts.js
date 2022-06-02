@@ -8,6 +8,7 @@ export default async function initFetchBeasts() {
 
         response.forEach(beast => {
             const divAnimal = createBeast(beast);
+
             numbersGrid.appendChild(divAnimal);
         });
 
