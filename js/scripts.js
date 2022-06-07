@@ -1,5 +1,5 @@
 import initAnimationScroll from './modules/animation-scroll.js';
-import initScrollSmooth from './modules/scroll-smooth.js';
+import ScrollSmooth from './modules/scroll-smooth.js';
 import initAccordion from './modules/accordion.js';
 import initTabNave from './modules/tab-nav.js';
 import initModal from './modules/modal.js';
@@ -10,8 +10,10 @@ import initOperation from './modules/operation.js';
 import initFetchBeasts from './modules/fetch-beasts.js';
 import initFetchBitcoin from './modules/fetch-bitcoin.js';
 
+const scrollSmooth = new ScrollSmooth('.js-menu a[href^="#"]');
+scrollSmooth.init();
+
 initAnimationScroll();
-initScrollSmooth();
 initAccordion();
 initTabNave();
 initModal();
