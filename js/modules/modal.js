@@ -1,29 +1,43 @@
-export default function initModal() {
-  const container = document.querySelector('[data-modal="container"]');
-  const buttonOpen = document.querySelector('[data-modal="open"]');
-  const buttonClose = document.querySelector('[data-modal="close"]');
+export default class Modal {
+  constructor(container, open, close) {
+    this.containerModal = document.querySelector(container);
+    this.buttonOpen = document.querySelector(open);
+    this.buttonClose = document.querySelector(close);
 
-  function toggleModal(event) {
+    // bind this to the callback to do reference to the class object
+    this.eventToggleModal = this.eventToggleModal.bind(this);
+    this.clickOut = this.clickOut.bind(this);
+  }
+
+  // Open or clone modal
+  toggleModal() {
+    this.containerModal.classList.toggle('active');
+  }
+
+  // Add toggle event to the modal
+  eventToggleModal(event) {
     event.preventDefault();
-    container.classList.toggle('active');
+    this.toggleModal();
   }
 
-  function clickOut(event) {
-    if (event.target === this) {
-      toggleModal(event);
+  // Close modal when click out
+  clickOut(event) {
+    if (event.target === this.containerModal) {
+      this.toggleModal(event);
     }
   }
 
-  function pressEsc(event) {
-    if (container.classList.contains('active') && event.key === 'Escape') {
-      container.classList.toggle('active');
-    }
+  addModalEvents() {
+    this.buttonOpen.addEventListener('click', this.eventToggleModal);
+    this.buttonClose.addEventListener('click', this.eventToggleModal);
+    this.containerModal.addEventListener('click', this.clickOut);
   }
 
-  if (container && buttonOpen && buttonClose) {
-    buttonOpen.addEventListener('click', toggleModal);
-    buttonClose.addEventListener('click', toggleModal);
-    container.addEventListener('click', clickOut);
-    window.addEventListener('keydown', pressEsc);
+  init() {
+    if (this.containerModal && this.buttonOpen && this.buttonClose) {
+      this.addModalEvents();
+    }
+
+    return this;
   }
 }
