@@ -4,7 +4,7 @@ import TabNav from './modules/tab-nav.js';
 import Modal from './modules/modal.js';
 import Tooltip from './modules/tooltip.js';
 import fetchBeasts from './modules/fetch-beasts.js';
-import initFetchBitcoin from './modules/fetch-bitcoin.js';
+import fetchBitcoin from './modules/fetch-bitcoin.js';
 import initAnimationScroll from './modules/animation-scroll.js';
 import initDropdownMenu from './modules/dropdown-menu.js';
 import initMenuMobile from './modules/menu-mobile.js';
@@ -33,6 +33,6 @@ initAnimationScroll();
 initDropdownMenu();
 initMenuMobile();
 initOperation();
-initFetchBitcoin();
 
 fetchBeasts('../../api-beasts.json', '.numbers-grid');
+fetchBitcoin('https://blockchain.info/ticker', '.price-btc');
