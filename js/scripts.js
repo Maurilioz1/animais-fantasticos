@@ -8,7 +8,7 @@ import fetchBitcoin from './modules/fetch-bitcoin.js';
 import AnimationScroll from './modules/animation-scroll.js';
 import DropdownMenu from './modules/dropdown-menu.js';
 import MenuMobile from './modules/menu-mobile.js';
-import initOperation from './modules/operation.js';
+import Operation from './modules/operation.js';
 
 const scrollSmooth = new ScrollSmooth('.js-menu a[href^="#"]');
 scrollSmooth.init();
@@ -38,7 +38,8 @@ dropdownMenu.init();
 const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"]');
 menuMobile.init();
 
-initOperation();
+const operation = new Operation('[data-week]', 'open');
+operation.init();
 
 fetchBeasts('../../api-beasts.json', '.numbers-grid');
 fetchBitcoin('https://blockchain.info/ticker', '.price-btc');
