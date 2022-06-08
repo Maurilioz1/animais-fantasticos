@@ -7,7 +7,7 @@ import fetchBeasts from './modules/fetch-beasts.js';
 import fetchBitcoin from './modules/fetch-bitcoin.js';
 import AnimationScroll from './modules/animation-scroll.js';
 import DropdownMenu from './modules/dropdown-menu.js';
-import initMenuMobile from './modules/menu-mobile.js';
+import MenuMobile from './modules/menu-mobile.js';
 import initOperation from './modules/operation.js';
 
 const scrollSmooth = new ScrollSmooth('.js-menu a[href^="#"]');
@@ -35,7 +35,9 @@ animationScroll.init();
 const dropdownMenu = new DropdownMenu('[data-dropdown]');
 dropdownMenu.init();
 
-initMenuMobile();
+const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"]');
+menuMobile.init();
+
 initOperation();
 
 fetchBeasts('../../api-beasts.json', '.numbers-grid');
