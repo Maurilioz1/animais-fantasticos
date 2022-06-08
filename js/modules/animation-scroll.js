@@ -1,11 +1,15 @@
-export default function initAnimationScroll() {
-  const sections = document.querySelectorAll('.js-scroll');
-  const windowHalf = window.innerHeight * 0.6;
+export default class AnimationScroll {
+  constructor(sections) {
+    this.sections = document.querySelectorAll(sections);
+    this.windowHalf = window.innerHeight * 0.6;
 
-  function animaScroll() {
-    sections.forEach((item) => {
+    this.animaScroll = this.animaScroll.bind(this);
+  }
+
+  animaScroll() {
+    this.sections.forEach((item) => {
       const sectionTop = item.getBoundingClientRect().top;
-      const isSectionVisible = sectionTop - windowHalf < 0;
+      const isSectionVisible = sectionTop - this.windowHalf < 0;
 
       if (isSectionVisible) {
         item.classList.add('active');
@@ -15,9 +19,8 @@ export default function initAnimationScroll() {
     });
   }
 
-  if (sections.length) {
-    animaScroll();
-
-    window.addEventListener('scroll', animaScroll);
+  init() {
+    this.animaScroll();
+    window.addEventListener('scroll', this.animaScroll);
   }
 }

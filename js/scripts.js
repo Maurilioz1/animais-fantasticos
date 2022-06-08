@@ -5,7 +5,7 @@ import Modal from './modules/modal.js';
 import Tooltip from './modules/tooltip.js';
 import fetchBeasts from './modules/fetch-beasts.js';
 import fetchBitcoin from './modules/fetch-bitcoin.js';
-import initAnimationScroll from './modules/animation-scroll.js';
+import AnimationScroll from './modules/animation-scroll.js';
 import initDropdownMenu from './modules/dropdown-menu.js';
 import initMenuMobile from './modules/menu-mobile.js';
 import initOperation from './modules/operation.js';
@@ -29,7 +29,9 @@ modal.init();
 const tooltip = new Tooltip('[data-tooltip]');
 tooltip.init();
 
-initAnimationScroll();
+const animationScroll = new AnimationScroll('.js-scroll');
+animationScroll.init();
+
 initDropdownMenu();
 initMenuMobile();
 initOperation();
