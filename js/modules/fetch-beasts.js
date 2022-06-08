@@ -1,4 +1,4 @@
-import initAnimaNumbers from './animation-numbers.js';
+import AnimaNumbers from './animation-numbers.js';
 
 export default async function initFetchBeasts() {
   async function fetchBeasts(url) {
@@ -23,7 +23,12 @@ export default async function initFetchBeasts() {
       numbersGrid.appendChild(divAnimal);
     });
 
-    initAnimaNumbers();
+    const animaNumbers = new AnimaNumbers(
+      '[data-number]',
+      '.numbers',
+      'active'
+    );
+    animaNumbers.init();
   }
 
   fetchBeasts('./api-beasts.json');

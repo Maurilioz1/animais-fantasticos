@@ -5,7 +5,6 @@ export default class TabNav {
     this.activeClass = 'active';
   }
 
-  // Active tab according with index
   activeTab = (index) => {
     this.tabContent.forEach((item) => {
       item.classList.remove(this.activeClass);
@@ -14,7 +13,6 @@ export default class TabNav {
     this.tabContent[index].classList.add(this.activeClass);
   };
 
-  // Add tabs events
   addTabNavEvent() {
     this.tabMenu.forEach((item, index) => {
       item.addEventListener('click', () => this.activeTab(index));
@@ -23,7 +21,6 @@ export default class TabNav {
 
   init() {
     if (this.tabMenu.length && this.tabContent.length) {
-      // Active first item
       this.activeTab(0);
       this.addTabNavEvent();
     }

@@ -1,4 +1,4 @@
-export default class initAccordion {
+export default class Accordion {
   constructor(list) {
     this.accordionList = document.querySelectorAll(list);
     this.activeClass = 'active';
@@ -9,7 +9,6 @@ export default class initAccordion {
     item.nextElementSibling.classList.toggle(this.activeClass);
   }
 
-  // Add accordion events
   addAccordionEvent() {
     this.accordionList.forEach((item) => {
       item.addEventListener('click', () => {
@@ -20,7 +19,6 @@ export default class initAccordion {
 
   init() {
     if (this.accordionList.length) {
-      // Active first item
       this.toggleAccordion(this.accordionList[0]);
       this.addAccordionEvent();
     }

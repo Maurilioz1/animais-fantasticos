@@ -2,13 +2,11 @@ export default class Tooltip {
   constructor(tooltips) {
     this.tooltips = document.querySelectorAll(tooltips);
 
-    // Objects binds from class to callbaks
     this.onMouseLeave = this.onMouseLeave.bind(this);
     this.onMouseMove = this.onMouseMove.bind(this);
     this.onMouseOver = this.onMouseOver.bind(this);
   }
 
-  // Create tooltipbox and insert into body
   createTooltipBox(element) {
     const tooltipBox = document.createElement('div');
     const text = element.getAttribute('aria-label');
@@ -35,7 +33,6 @@ export default class Tooltip {
   }
 
   onMouseOver({ currentTarget }) {
-    // Create tooltipbox and insert ia a property
     this.createTooltipBox(currentTarget);
     currentTarget.addEventListener('mousemove', this.onMouseMove);
     currentTarget.addEventListener('mouseleave', this.onMouseLeave);

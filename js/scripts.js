@@ -1,19 +1,17 @@
-import initAnimationScroll from './modules/animation-scroll.js';
 import ScrollSmooth from './modules/scroll-smooth.js';
 import Accordion from './modules/accordion.js';
 import TabNav from './modules/tab-nav.js';
 import Modal from './modules/modal.js';
 import Tooltip from './modules/tooltip.js';
+import initFetchBeasts from './modules/fetch-beasts.js';
+import initFetchBitcoin from './modules/fetch-bitcoin.js';
+import initAnimationScroll from './modules/animation-scroll.js';
 import initDropdownMenu from './modules/dropdown-menu.js';
 import initMenuMobile from './modules/menu-mobile.js';
 import initOperation from './modules/operation.js';
-import initFetchBeasts from './modules/fetch-beasts.js';
-import initFetchBitcoin from './modules/fetch-bitcoin.js';
 
 const scrollSmooth = new ScrollSmooth('.js-menu a[href^="#"]');
 scrollSmooth.init();
-
-initAnimationScroll();
 
 const accordion = new Accordion('.js-accordion dt');
 accordion.init();
@@ -31,6 +29,7 @@ modal.init();
 const tooltip = new Tooltip('[data-tooltip]');
 tooltip.init();
 
+initAnimationScroll();
 initDropdownMenu();
 initMenuMobile();
 initOperation();

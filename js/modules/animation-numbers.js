@@ -1,34 +1,51 @@
-export default function initAnimaNumbers() {
-  function animaNumbers() {
-    const numbers = document.querySelectorAll('[data-number]');
+export default class AnimaNumbers {
+  constructor(numbers, observerTarget, observerClass) {
+    this.numbers = document.querySelectorAll(numbers);
+    this.observerTarget = document.querySelector(observerTarget);
+    this.observerClass = observerClass;
 
-    numbers.forEach((item) => {
-      const number = +item.innerText;
-      const increment = number / 100;
-      let start = 0;
-      const timer = setInterval(() => {
-        start += increment;
+    this.handleMutation = this.handleMutation.bind(this);
+  }
 
-        item.innerText = Math.floor(start);
+  static incrementNumber(item) {
+    const number = +item.innerText;
+    const increment = number / 100;
+    let start = 0;
+    const timer = setInterval(() => {
+      start += increment;
 
-        if (start > number) {
-          item.innerText = number;
-          clearInterval(timer);
-        }
-      }, 25 * Math.random());
+      item.innerText = Math.floor(start);
+
+      if (start > number) {
+        item.innerText = number;
+        clearInterval(timer);
+      }
+    }, 25 * Math.random());
+  }
+
+  animaNumbers() {
+    this.numbers.forEach((item) => {
+      this.constructor.incrementNumber(item);
     });
   }
 
-  let observer;
-
-  function handleMutation(mutation) {
-    if (mutation[0].target.classList.contains('active')) {
-      observer.disconnect();
-      animaNumbers();
+  handleMutation(mutation) {
+    if (mutation[0].target.classList.contains(this.observerClass)) {
+      this.observer.disconnect();
+      this.animaNumbers();
     }
   }
 
-  const observeTarget = document.querySelector('.numbers');
-  observer = new MutationObserver(handleMutation);
-  observer.observe(observeTarget, { attributes: true });
+  addMutationObserver() {
+    this.observer = new MutationObserver(this.handleMutation);
+    this.observer.observe(this.observerTarget, { attributes: true });
+  }
+
+  init() {
+    if (this.numbers.length && this.observerTarget) {
+      this.addMutationObserver();
+    }
+
+    return this;
+  }
 }
