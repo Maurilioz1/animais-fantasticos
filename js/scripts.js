@@ -3,7 +3,7 @@ import Accordion from './modules/accordion.js';
 import TabNav from './modules/tab-nav.js';
 import Modal from './modules/modal.js';
 import Tooltip from './modules/tooltip.js';
-import initFetchBeasts from './modules/fetch-beasts.js';
+import fetchBeasts from './modules/fetch-beasts.js';
 import initFetchBitcoin from './modules/fetch-bitcoin.js';
 import initAnimationScroll from './modules/animation-scroll.js';
 import initDropdownMenu from './modules/dropdown-menu.js';
@@ -33,5 +33,6 @@ initAnimationScroll();
 initDropdownMenu();
 initMenuMobile();
 initOperation();
-initFetchBeasts();
 initFetchBitcoin();
+
+fetchBeasts('../../api-beasts.json', '.numbers-grid');
