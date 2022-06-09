@@ -9,6 +9,7 @@ import AnimationScroll from './modules/animation-scroll.js';
 import DropdownMenu from './modules/dropdown-menu.js';
 import MenuMobile from './modules/menu-mobile.js';
 import Operation from './modules/operation.js';
+import SlideNav from './modules/slide-nav.js';
 
 const scrollSmooth = new ScrollSmooth('.js-menu a[href^="#"]');
 scrollSmooth.init();
@@ -43,3 +44,7 @@ operation.init();
 
 fetchBeasts('./api-beasts.json', '.numbers-grid');
 fetchBitcoin('https://blockchain.info/ticker', '.price-btc');
+
+const slide = new SlideNav('.slide-wrapper', '.slide');
+slide.init();
+slide.addControl('.custom-control');
